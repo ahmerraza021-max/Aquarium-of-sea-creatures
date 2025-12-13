@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <style>
+        * {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        header {
+            background: linear-gradient(135deg, #003973, #007bb5);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(0.6);
+        }
+
+
+        .gallery {
+            padding-bottom: 60px;
+        }
+
+
+        .imag-div {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: 0.4s ease;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .imag-div img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            border-radius: 15px;
+        }
+
+
+        .imag-div:hover img {
+            transform: scale(1.15);
+        }
+
+        .imag-div:hover {
+            transform: translateY(-8px);
+        }
+
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 50, 80, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .imag-div:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <header class="mb-5">
+        <h2>🌊 Marine Life Gallery 🐬</h2>
+        <p class="subtitle">Explore the beauty of the underwater world</p>
+    </header>
+
+    <section class="container gallery">
+        <div class="row g-4">
+
+            <div class="col-md-4 col-sm-6">
+                <div class="imag-div">
+                    <img src="https://plus.unsplash.com/premium_photo-1661841439995-1706237c83dc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="img-fluid" alt="">
+                    <div class="overlay">Coral Reef</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="imag-div">
+                    <img src="https://earth.org/wp-content/uploads/2022/06/Untitled-1024-%C3%97-683px-17.jpg.webp"
+                        class="img-fluid" alt="">
+                    <div class="overlay">Sea Turtle</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="imag-div">
+                    <img src="https://images.unsplash.com/photo-1516408388733-2f8364f2e00b?q=80&w=814&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="img-fluid" alt="">
+                    <div class="overlay">Tropical Fish</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="imag-div">
+                    <img src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="img-fluid" alt="">
+                    <div class="overlay">Shark Fish</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="imag-div">
+                    <img src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="img-fluid" alt="">
+                    <div class="overlay">Dolphin Fish</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="imag-div">
+                    <img src="https://images.unsplash.com/photo-1544552866-49ce864ff896?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="img-fluid" alt="">
+                    <div class="overlay">Whale Fish</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
