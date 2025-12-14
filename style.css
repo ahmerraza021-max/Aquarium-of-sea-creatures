@@ -1,0 +1,740 @@
+/* ------------------------------
+   GLOBAL STYLES
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f2f8ff;
+  color: #0a1a2a;
+}
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+/* ------------------------------
+   ADVANCED HEADER / NAVBAR
+------------------------------ */
+.main-header {
+    background-color: #142a5f;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Add shadow on scroll */
+.main-header.scrolled {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    background-color: #0f204f;
+}
+
+/* Flex container */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Logo animation */
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #007BFF;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo span {
+  color: #00BFFF;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  color: #13afc1;
+}
+
+/* Nav menu */
+#nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+    margin-left: 0%;
+}
+
+#nav-menu ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.4s ease;
+}
+
+/* Smooth gradient hover underline */
+#nav-menu ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00BFFF, #13afc1);
+  transition: width 0.4s ease;
+}
+
+#nav-menu ul li a:hover::after {
+  width: 100%;
+}
+
+#nav-menu ul li a:hover {
+  color: #13afc1;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger active animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile menu */
+@media (max-width: 992px) {
+  #nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 280px;
+    background-color: #142a5f;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 20px;
+    transition: right 0.4s ease;
+  }
+
+  #nav-menu.active {
+    right: 0;
+  }
+
+  #nav-menu ul {
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+  }
+
+  #nav-menu ul li a {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ------------------------------
+   HERO SECTION
+------------------------------ */
+.hero-section {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background: url("https://www.visitsealife.com/media/gyxpl250/homepage-banner.jpg") center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 20, 40, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  margin-top: 15px;
+  font-size: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 35px;
+  background: #4fc3ff;
+  color: #002542;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.cta-button:hover {
+  background: #ffffff;
+}
+
+/* ------------------------------
+   EVENTS SECTION
+------------------------------ */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 25px;
+}
+
+.event-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.event-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+section#events {
+    background-color: #4f575d;
+}
+
+.event-card:hover img {
+  transform: scale(1.07);
+}
+
+.event-card h3 {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 20px;
+  color: #003d66;
+}
+
+/* --- Visual Feedback (Validation Checkmark) --- */
+.form-validated.is-valid {
+    border-color: #28a745 !important;
+    padding-right: 2.25rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.7.4 4.8c-.3-.3-.3-.8 0-1.1s.8-.3 1.1 0l.7.7 2.3-2.3c.3-.3.8-.3 1.1 0s.3.8 0 1.1L3.4 6.7c-.3.3-.8.3-1.1 0z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+/* Customizing Seating Selector */
+#seating-selector .btn-outline-info {
+    border-color: var(--sea-blue);
+    color: var(--sea-blue);
+    font-weight: 500;
+}
+#seating-selector .btn-check:checked + .btn-outline-info {
+    background-color: var(--sea-blue);
+    color: white;
+    border-color: var(--sea-blue);
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  background: #001a33;
+  color: white;
+  padding: 60px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #aee6ff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #4fc3ff;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  background: #4fc3ff;
+  color: #002542;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.footer-bottom {
+  margin-top: 25px;
+  text-align: center;
+  color: #aad7ff;
+  font-size: 14px;
+}
+
+/* ------------------------------
+   RESPONSIVE NAVBAR
+------------------------------ */
+@media (max-width: 850px) {
+  .hamburger {
+    display: flex;
+  }
+
+  #nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 270px;
+    height: 100vh;
+    background: rgba(0, 31, 63, 0.95);
+    flex-direction: column;
+    padding-top: 120px;
+    transition: 0.4s;
+    display: flex;
+  }
+
+  #nav-menu ul {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  #nav-menu.open {
+    right: 0;
+  }
+}
+
+/* ------------------------------
+   HERO RESPONSIVE
+------------------------------ */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  .hero-content p {
+    font-size: 16px;
+    max-width: 90%;
+  }
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+/* ------------------------------
+   EVENTS RESPONSIVE
+------------------------------ */
+@media (max-width: 768px) {
+  .event-image img {
+    height: 180px;
+  }
+}
+
+/* ------------------------------
+   CONTACT RESPONSIVE
+------------------------------ */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------
+   FOOTER RESPONSIVE
+------------------------------ */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  #nav-menu {
+    width: 220px;
+  }
+}
+/* Hide cross button on desktop */
+.close-btn {
+  display: none;
+}
+
+/* Show cross button only on mobile */
+@media (max-width: 850px) {
+  .close-btn {
+    display: block;
+  }
+}
+a {
+    margin-top: 15px;
+}
+.visit-section {
+  padding: 100px 0;
+  background: linear-gradient(
+      rgba(8, 40, 70, 0.85),
+      rgba(8, 40, 70, 0.85)
+    ),
+    url("../images/aquarium1.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.section-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.section-header p {
+    color: #cde8ff;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.glass-box:hover {
+  transform: translateY(-10px);
+}
+
+.icon-circle {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.glass-box h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+.note {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #ffdede;
+}
+
+.location-text {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.map-frame {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+}
+.glass-box {
+    margin-top: 20px;
+}
+.contact-section {
+    padding: 80px 0;
+    background: #60666c;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: #03535b99;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 98%);
+}
+p.text-center.mb-5 {
+    margin-bottom: 18px;
+    margin-left: 28%;
+}
+.contact-info h3, .contact-form h3 {
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #142a5f;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #0f1f4b;
+}
+
+.form-message {
+  margin-top: 10px;
+  font-weight: 500;
+}
+h2.section-title.text-center {
+    color: #000000;
+}
+.logo {
+    margin-left: -6%;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  white-space: nowrap; /* Prevent line break */
+}
+
+.logo span {
+  color: #4dabf7; /* Highlighted word */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 20px;
+  }
+  
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+/* -----------------------------
+   MODERN MARINE LIFE TABLE STYLE
+------------------------------- */
+.modern-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.modern-table thead tr {
+  background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.modern-table th, .modern-table td {
+  padding: 1rem;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Row hover */
+.modern-table tbody tr {
+  transition: transform 0.3s, background 0.3s;
+}
+
+.modern-table tbody tr:hover {
+  background: #f0f4f8;
+  transform: translateY(-2px);
+}
+
+/* Category Badges */
+.badge.modern {
+  font-size: 0.85rem;
+  padding: 0.45em 0.85em;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.badge.modern.fish { background: #2196f3; }
+.badge.modern.mammal { background: #ff9800; }
+.badge.modern.crustacean { background: #4caf50; }
+.badge.modern.mollusk { background: #f44336; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modern-table th, .modern-table td {
+    padding: 0.6rem;
+    font-size: 14px;
+  }
+}
+h2.text-center.mb-5.fw-bold {
+    margin-left: 35%;
+}
+
+section#marine-life-modern {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+h2.text-center.mb-5.fw-bold {
+    margin-left: -3%;
+    margin-bottom: 19px;
+}
+h2 {
+    display: flex;
+    justify-content: center;
+}

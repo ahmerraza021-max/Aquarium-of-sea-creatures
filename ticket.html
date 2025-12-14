@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Booking with Prices</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="booking-section">
+    <div class="container">
+      <h2>Online Event Booking</h2>
+      <p>Book your aquarium experience instantly</p>
+
+      <!-- Prices Panel -->
+      <div class="prices-panel">
+        <div class="price-card">
+          <h3>Adult Ticket</h3>
+          <p>$20 per person</p>
+        </div>
+        <div class="price-card">
+          <h3>Child Ticket</h3>
+          <p>$10 per child</p>
+        </div>
+        <div class="price-card">
+          <h3>Family Ticket</h3>
+          <p>$50 per family</p>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="name"></label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email"></label>
+          <input type="email" id="email" placeholder="Enter email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone"></label>
+          <input type="tel" id="phone" placeholder="03XXXXXXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label for="ticketType"></label>
+          <select id="ticketType" required>
+            <option value="">--Choose Ticket--</option>
+            <option value="adult" data-price="20">Adult</option>
+            <option value="child" data-price="10">Child</option>
+            <option value="family" data-price="50">Family</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          
+          <input type="number" id="quantity" min="1" value="" placeholder="Number of Member" required>
+        </div>
+
+        <div class="form-group">
+          <label>Total Price:</label>
+          <p id="totalPrice">$0</p>
+        </div>
+
+        <div class="form-group">
+          <label for="date"></label>
+          <input type="date" id="date" required>
+        </div>
+
+        <button type="submit">Confirm Booking</button>
+        <p id="formMessage" class="form-message"></p>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+  body {
+  font-family: "Poppins", sans-serif;
+  background: #1b365d;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.booking-section {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: #2c4a6b;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Prices Panel */
+.prices-panel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.price-card {
+  flex: 1;
+  background: #3b5f7f;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.price-card h3 {
+  margin-bottom: 10px;
+}
+
+.price-card p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00e0ff;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #00aaff;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0088cc;
+}
+
+.form-message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+#totalPrice {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffdd57;
+}
+</style>
+<script>
+  const ticketType = document.getElementById("ticketType");
+const quantity = document.getElementById("quantity");
+const totalPrice = document.getElementById("totalPrice");
+
+// Update price dynamically
+function updatePrice() {
+    const selectedOption = ticketType.options[ticketType.selectedIndex];
+    const price = selectedOption.getAttribute("data-price");
+    const qty = quantity.value;
+    if(price) {
+        totalPrice.textContent = "$" + (price * qty);
+    } else {
+        totalPrice.textContent = "$0";
+    }
+}
+
+ticketType.addEventListener("change", updatePrice);
+quantity.addEventListener("input", updatePrice);
+
+// Form submission
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const type = ticketType.value;
+    const qty = quantity.value;
+    const date = document.getElementById("date").value;
+
+    const messageEl = document.getElementById("formMessage");
+
+    if(!name || !email || !phone || !type || !qty || !date) {
+        messageEl.textContent = "Please fill in all fields!";
+        messageEl.style.color = "red";
+        return;
+    }
+
+    messageEl.textContent = `Booking Confirmed! Total: ${totalPrice.textContent}`;
+    messageEl.style.color = "lightgreen";
+
+    document.getElementById("bookingForm").reset();
+    totalPrice.textContent = "$0";
+});
+
+</script>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sea Life Animals – Clean Premium Layout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      font-family:Poppins, sans-serif;
+      background:#f5fbff;
+      color:#0a1a2a;
+    }
+
+    /* SECTION */
+    .animals-clean{
+      padding:100px 0;
+    }
+
+    .section-head {
+    max-width: 650px;
+    margin-bottom: 70px;
+    margin-left: 32%;
+}
+
+    .section-head h2{
+      font-weight:700;
+      color:#003b66;
+    }
+
+    .section-head p {
+    color: #555;
+    margin-left: -30%;
+}
+
+    /* ITEM */
+    .animal-row{
+      background:#fff;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 20px 50px rgba(0,0,0,0.12);
+      margin-bottom:50px;
+      transition:0.4s ease;
+    }
+
+    .animal-row:hover{
+      transform:translateY(-10px);
+      box-shadow:0 35px 80px rgba(0,0,0,0.25);
+    }
+
+    .animal-img{
+      height:100%;
+      min-height:320px;
+      overflow:hidden;
+    }
+
+    .animal-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.6s ease;
+    }
+
+    .animal-row:hover img{
+      transform:scale(1.12);
+    }
+
+    .animal-info{
+      padding:45px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .animal-info h3{
+      font-weight:600;
+      color:#004a7c;
+      margin-bottom:12px;
+    }
+
+    .animal-info p{
+      color:#555;
+      font-size:15px;
+      margin-bottom:20px;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:6px 16px;
+      border-radius:50px;
+      background:#e6f4ff;
+      color:#0077b6;
+      font-size:13px;
+      width:fit-content;
+    }
+
+    @media(max-width:768px){
+      .animal-info{padding:30px;}
+    }
+  </style>
+</head>
+<body>
+
+<section class="animals-clean">
+  <div class="container">
+
+    <div class="section-head">
+      <h2>About Sea Life Animals</h2>
+      <p>Discover the most fascinating marine animals, their beauty, intelligence, and role in ocean life.</p>
+    </div>
+
+    <!-- SHARK -->
+    <div class="row animal-row align-items-center">
+      <div class="col-md-6 animal-img">
+        <img src="https://imageio.forbes.com/specials-images/imageserve/6838bb9fa811b2facf68c69e/Father-with-daughter-watching-sharks-in-aquarium/0x0.jpg?format=jpg&crop=3534,1953,x0,y0,safe&width=960" alt="Shark">
+      </div>
+      <div class="col-md-6 animal-info">
+        <span class="tag">Predator</span>
+        <h3>Sharks</h3>
+        <p>Sharks are powerful ocean predators that help maintain balance in marine ecosystems.
+They have existed for millions of years and play a vital role in keeping the oceans healthy.</p>
+      </div>
+    </div>
+
+    <!-- DOLPHIN -->
+    <div class="row animal-row align-items-center flex-md-row-reverse">
+      <div class="col-md-6 animal-img">
+        <img src="https://cdn.sanity.io/images/xhhnkk4g/production/bfbd45d13c417168625bfea7c9da00d3d83d6d04-1080x720.webp?w=3840&q=65&fit=clip&auto=format" alt="Dolphin">
+      </div>
+      <div class="col-md-6 animal-info">
+        <span class="tag">Mammal</span>
+        <h3>Dolphins</h3>
+        <p>Dolphins are highly intelligent marine mammals known for their friendly and social nature.
+They communicate using sounds and clicks and often live in close-knit groups called pods.</p>
+      </div>
+    </div>
+
+    <!-- TURTLE -->
+    <div class="row animal-row align-items-center">
+      <div class="col-md-6 animal-img">
+        <img src="https://a-z-animals.com/media/2018/09/Sea-turtle-header-2.jpg" alt="Sea Turtle">
+      </div>
+      <div class="col-md-6 animal-info">
+        <span class="tag">Reptile</span>
+        <h3>Sea Turtles</h3>
+        <p>Sea Turtles are ancient reptiles that migrate long distances across oceans.
+They play a key role in maintaining the health of marine ecosystems.</p>
+      </div>
+    </div>
+
+    <!-- WHALE -->
+    <div class="row animal-row align-items-center flex-md-row-reverse">
+      <div class="col-md-6 animal-img">
+        <img src="https://t4.ftcdn.net/jpg/18/26/50/07/360_F_1826500708_5f1Cc2Lpd9pGF4omvOaux8DoD6B2BM3S.jpg" alt="Whale">
+      </div>
+      <div class="col-md-6 animal-info">
+        <span class="tag">Giant Mammal</span>
+        <h3>Whales</h3>
+        <p>Whales are the largest animals on Earth, vital for ocean ecosystems.
+They help maintain marine balance and support biodiversity through their presence.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
